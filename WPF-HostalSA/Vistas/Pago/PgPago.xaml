@@ -1,0 +1,98 @@
+﻿<Page x:Class="WPF_HostalSA.Vistas.PgPago"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PgPago">
+
+    <Border>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="Titulo"
+                       Text="Pagos"
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       Grid.ColumnSpan="5"
+                       FontSize="30"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center" FontWeight="Bold" FontFamily="{DynamicResource MaterialDesignFont}" Foreground="{DynamicResource color6}"/>
+
+
+
+
+            <!-- DataGrid para mostrar los alquileres -->
+            <DataGrid x:Name="dgAlquileres" Grid.Row="4"
+                            Grid.Column="1"
+                      Grid.ColumnSpan="5"
+                      Grid.RowSpan="9"
+                      AutoGenerateColumns="True">
+
+            </DataGrid>
+
+            <RadioButton x:Name="rbPendientes" Grid.Row="3"
+                            Grid.Column="4" Content="Pendientes" Margin="5" IsChecked="True" Checked="rbPendientes_Checked" FontFamily="{DynamicResource MaterialDesignFont}" FontSize="16"/>
+            <RadioButton x:Name="rbPagados" Content="Pagados" Grid.Row="3"
+                            Grid.Column="5" Margin="5" Checked="rbPagados_Checked" FontFamily="{DynamicResource MaterialDesignFont}" FontSize="16"/>
+
+
+            <!-- Botón para agregar un pago -->
+            <Button x:Name="btnLimpiar" Content="Agregar Pago" 
+                    Grid.Column="3"
+                    Grid.Row="14"
+                    BorderThickness="0"
+                    FontSize="16"
+                    FontFamily="{DynamicResource MaterialDesignFont}"
+                    Cursor="Hand" Click="btnAgregarPago_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#039BE5"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#81C784"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="150" Height="40"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+    </Border>
+</Page>
